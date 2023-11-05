@@ -4,11 +4,55 @@
     left: 0;
     right: 0;
     display: flex;
-    background-color: rgb(0, 170, 113);
+    background-color:#510C72;
     z-index: 999;
     height: 50px;
     justify-content: space-between;
     padding: 10px;
     align-items: center;
   }
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .nav-left img {
+    height: 50px; /* Adjust height as needed */
+  }
+  
+  .nav-middle select {
+    margin: 20px;
+    padding: 5px 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+  }
+  
+  .nav-middle input {
+    padding: 5px 200px;
+    margin: 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    text-emphasis: white;
+  }
+  
+  .nav-middle button {
+    background-color: #b624b6;
+    margin: 0 20px;
+    color: white;
+    border: none;
+    padding: 5px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .nav-right button {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: auto;
+  }
+  
+  
   

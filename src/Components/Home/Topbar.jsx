@@ -5,7 +5,15 @@ const Topbar = () => {
 
   return (
     <div className='topbar-container'>
-     Top bar
+     <div className="top-bar">
+      <div className="top-right">
+        <a href="#">My Orders</a>
+        <a href="#">Track Orders</a>
+        <a href="#">Cart <i className="fa fa-shopping-cart"></i></a>
+        <a href="#">Login</a>
+        <a href="#">Signup</a>
+      </div>
+    </div>
     </div>
   )
 }
