@@ -17,8 +17,14 @@
     padding: 10px;
   }
   
+  .nav-left {
+    display: flex;
+    align-items: center;
+  }
+  
   .nav-left img {
-    height: 50px; /* Adjust height as needed */
+    height: 100px; /* Adjust the height as needed */
+    margin-right: 10px;
   }
   
   .nav-middle select {

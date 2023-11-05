@@ -1,26 +1,42 @@
 import React from 'react'
+import beet from '../Assets/beet.jpg'
+import beans from'../Assets/beans.jpg'
+import bitteGuard from'../Assets/bitter guard.jpeg'
+import brinjol from'../Assets/brinjol.jpg'
+import capsicum from'../Assets/capsicum.jpg'
+import carrot from'../Assets/carrot.jpg'
+import cauliFlower from'../Assets/cauliflower.jpg'
+import cocunut from'../Assets/cocunut.jpg'
+
 
 const Products = () => {
-  const products = [
-    { name: 'Product 1', price: '$10', imageSrc: '/path/to/product1.jpg' },
-    { name: 'Product 2', price: '$15', imageSrc: '/path/to/product2.jpg' },
-    // Add more products as needed
-  ];
-
-  return (
-    <div className='product-container'>
+    const products = [
+      { name: 'Beet', price: '1Kg - Rs.150', imageSrc: beet },
+      { name: 'Beans', price: '1Kg - Rs.150', imageSrc:beans },
+      { name: 'Bitter guard', price: '1Kg - Rs.150', imageSrc:bitteGuard },
+      { name: 'Brinjol', price: '1Kg - Rs.150', imageSrc: brinjol},
+      { name: 'Capsicum', price: '1Kg - Rs.150', imageSrc: capsicum},
+      { name: 'Carrot', price: '1Kg - Rs.150', imageSrc:carrot },
+      { name: 'Cauliflower', price: '1Kg - Rs.150', imageSrc:cauliFlower },
+      { name: 'Cocunut', price: '1Kg - Rs.150', imageSrc:cocunut},
+    ];
+  
+    return (
+      <div className='product-container'>
         <div className="product-list">
-      {products.map((product, index) => (
-        <div className="product" key={index}>
-          <img src={product.imageSrc} alt={product.name} />
-          <p>{product.name}</p>
-          <p>{product.price}</p>
-          <button>Add to Cart</button>
+          {products.map((product, index) => (
+            <div className="product" key={index}>
+              <img src={product.imageSrc} alt={product.name} />
+              <p>{product.name}</p>
+              <p>{product.price}</p>
+              <button>Add to Cart</button>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    </div>
-  )
-}
+      </div>
+    )
+  }
+  
+
 
 export default Products
