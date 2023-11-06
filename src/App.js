@@ -13,7 +13,7 @@ function App() {
     <div className="App">
        <BrowserRouter>
       <Routes>
-        <Route path="/" Component={MainLayout}>
+        <Route path="/front-end/" Component={MainLayout}>
           <Route path="Home" Component={Home} />
           <Route path="Cart" Component={Cart} />
         </Route>
