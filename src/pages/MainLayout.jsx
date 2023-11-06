@@ -9,9 +9,7 @@ import Products from '../Components/Home/Products'
 const MainLayout = () => {
   return (
     <div>
-      <Topbar/>
       <Navbar/>
-      <Products></Products>
       <Outlet/>
     </div>
 

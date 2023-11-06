@@ -12,24 +12,25 @@ function App() {
   return (
     <div className="App">
        <BrowserRouter>
-      <Routes>
-        <Route path="/front-end/" Component={MainLayout}>
-          <Route path="Home" Component={Home} />
-          <Route path="Cart" Component={Cart} />
-        </Route>
-        <Route path="/Auth/">
-          <Route path="Login" Component={Login} />
-          <Route path="Register" Component={Register} />       
-        </Route>
-        <Route path="/Delivery/Auth/">
-          <Route path="Login" Component={Login} />
-          <Route path="Register" Component={Register} />       
-        </Route>
-        <Route path="/Delivery/" Component={MainLayout}>
-          <Route path="Home" Component={Home} />
-        </Route>
-        <Route path="*" element={<h1>Not Found</h1>} />
-      </Routes>
+       <Routes>
+  <Route path="/" element={<MainLayout />}>
+    <Route path="Home" element={<Home />} />
+    <Route path="Cart" element={<Cart />} />
+  </Route>
+  <Route path="front-end/Auth">
+    <Route path="Login" element={<Login />} />
+    <Route path="Register" element={<Register />} />
+  </Route>
+  <Route path="Delivery/Auth">
+    <Route path="Login" element={<Login />} />
+    <Route path="Register" element={<Register />} />
+  </Route>
+  <Route path="Delivery" element={<MainLayout />}>
+    <Route path="Home" element={<Home />} />
+  </Route>
+  <Route path="*" element={<h1>Not Found</h1>} />
+</Routes>
+
     </BrowserRouter>
       
     </div>

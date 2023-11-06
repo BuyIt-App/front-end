@@ -1,43 +1,66 @@
-import React from 'react'
-import beet from '../Assets/beet.jpg'
-import beans from'../Assets/beans.jpg'
-import bitteGuard from'../Assets/bitter guard.jpeg'
-import brinjol from'../Assets/brinjol.jpg'
-import capsicum from'../Assets/capsicum.jpg'
-import carrot from'../Assets/carrot.jpg'
-import cauliFlower from'../Assets/cauliflower.jpg'
-import cocunut from'../Assets/cocunut.jpg'
-import '../../Styles/Home.css'
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import '../../Styles/Home.css';
+import veg from '../Assets/veg.jpg';
+import dairy from '../Assets/dairy.jpg';
+import fruits from '../Assets/fruits.jpg';
 
 const Products = () => {
-    const products = [
-      { name: 'Beet', price: '1Kg - Rs.150', imageSrc: beet },
-      { name: 'Beans', price: '1Kg - Rs.50', imageSrc:beans },
-      { name: 'Bitter guard', price: '1Kg - Rs.250', imageSrc:bitteGuard },
-      { name: 'Brinjol', price: '1Kg - Rs.100', imageSrc: brinjol},
-      { name: 'Capsicum', price: '1Kg - Rs.125', imageSrc: capsicum},
-      { name: 'Carrot', price: '1Kg - Rs.50', imageSrc:carrot },
-      { name: 'Cauliflower', price: '1Kg - Rs.130', imageSrc:cauliFlower },
-      { name: 'Cocunut', price: '1 - Rs.80', imageSrc:cocunut},
-    ];
-  
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8060/product/all')
+            .then((response) => {
+                setProducts(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching product data:', error);
+            });
+    }, []);
+
+    // Define a function or mapping for category images
+    const getCategoryImage = (category) => {
+        switch (category) {
+            case 'Dairy':
+                return dairy;
+            case 'fruits':
+                return fruits;
+            case 'Veg':
+                return veg;
+            // Add more cases for other categories
+            default:
+                return '';
+        }
+    };
+
+    // Group products by category
+    const groupedProducts = {};
+    products.forEach((product) => {
+        if (!groupedProducts[product.category]) {
+            groupedProducts[product.category] = [];
+        }
+        groupedProducts[product.category].push(product);
+    });
+
     return (
-      <div className='product-container'>
-        <div className="product-list">
-          {products.map((product, index) => (
-            <div className="product" key={index}>
-              <img src={product.imageSrc} alt={product.name} />
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-              <button>Add to Cart</button>
-            </div>
-          ))}
+        <div className='product-container'>
+            {Object.keys(groupedProducts).map((category, index) => (
+                <div key={index}>
+                    <h2>{category} Products</h2>
+                    <div className="product-list">
+                        {groupedProducts[category].map((product, productIndex) => (
+                            <div className="product" key={productIndex}>
+                                <img src={getCategoryImage(product.category)} alt="Product" />
+                                <p>{product.productName}</p>
+                                <p>{product.description} - Rs. {product.price}</p>
+                                <button>Add to Cart</button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
         </div>
-      </div>
-    )
-  }
-  
+    );
+};
 
-
-export default Products
+export default Products;

@@ -1,5 +1,7 @@
 .App{
-  background-color: rgb(255, 247, 247);
+
+
+    background-color: rgb(232, 232, 232);
   display: flex;
   justify-content: center; 
   align-items: center; 
