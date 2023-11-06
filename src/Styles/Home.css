@@ -6,7 +6,6 @@
     background-color: #6F6D70;
     height: 100vh;
     width: 100vw;
-
 }
 
 .topbar-container{
@@ -41,7 +40,9 @@
   margin: 20px;
   padding: 5px 25px;
   border: 1px solid #ccc;
+  color:  #510C72;
   border-radius: 4px;
+  background-color:#c7c0ca;
  
 }
 
@@ -51,23 +52,23 @@
   border: 1px solid #cccccc;
   border-radius: 4px;
   text-emphasis: white;
+  background-color: #c7c0ca;
 }
 
 .top-middle button {
-  background-color: #b624b6;
+  background-color: #c7c0ca;
   margin: 0 20px;
-  color: white;
+  color:  #510C72;
   border: none;
   padding: 5px 25px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.top-right button {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-left: auto;
+.top-right a {
+  color: #c7c0ca;
+  margin-left: 10px;
+  text-decoration: none;
 }
 
 .product-container{
