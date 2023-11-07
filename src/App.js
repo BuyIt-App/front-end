@@ -13,9 +13,9 @@ import AdminHome from "./pages/Admin/AdminHome";
 import StoreKeeperHome from "./pages/StoreKeeper/StoreKeeperHome";
 
 function App() {
-  const isAuthenticated = false;
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
   // const userRole = "ADMIN";
-  const userRole = "CUSTOMER";
+  const userRole = localStorage.getItem("role");
   // const userRole = "STORE KEEPER";
   // const userRole = "DELIVERY PERSON";
 

@@ -7,6 +7,7 @@ import fruits from '../Assets/fruits.jpg';
 import { useNavigate } from 'react-router-dom';
 
 const Products = (props) => {
+  const isA = localStorage.getItem("isAuthenticated");
   const navigate = useNavigate();
     const [products, setProducts] = useState([]);
 
@@ -46,12 +47,10 @@ const Products = (props) => {
     
 
     const handleAddToCart = () => {
-      if (props.props === true) {
+      if (isA === "true") {
           // User is authenticated, redirect to the cart page
           navigate('/cart');
           console.log(props)
-
-      
       } else {
           // User is not authenticated, redirect to the sign-in page
           navigate('/auth/customer/login');
