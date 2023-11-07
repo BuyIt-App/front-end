@@ -14,8 +14,8 @@ import StoreKeeperHome from "./pages/StoreKeeper/StoreKeeperHome";
 
 function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated");
-  // const userRole = "ADMIN";
-  const userRole = localStorage.getItem("role");
+  const userRole = "ADMIN";
+  // const userRole = localStorage.getItem("role");
   // const userRole = "STORE KEEPER";
   // const userRole = "DELIVERY PERSON";
 
@@ -71,13 +71,29 @@ function App() {
           {/* common routes */}
 
           <Route path="/Route/" element={<TopLayout userRole={userRole} />}>
-            <Route path="Delivery" element={<DeliveryHome />} />
-            <Route path="Admin" element={<AdminHome />} />
-            <Route path="StoreKeeper" element={<StoreKeeperHome />} />
+
+            { userRole === "DELIVERY PERSON" ? (
+              <Route path="Delivery" element={<DeliveryHome />} />
+            ):
+              <Route path="403" element={<h1>Not Authorized</h1>} /> 
+            }
+
+
+            { userRole === "ADMIN" ? (
+             <Route path="Admin" element={<AdminHome />} />
+            ):
+              <Route path="403" element={<h1>Not Authorized</h1>} /> 
+            }
+
+            {userRole === "STORE KEEPER" ? (
+              <Route path="StoreKeeper" element={<StoreKeeperHome />} />
+            ):
+              <Route path="403" element={<h1>Not Authorized</h1>} /> 
+            }
 
           </Route>
 
-          <Route path="*" element={<h1>Not Found</h1>} />
+          <Route path="*" element={<h1>Not Authorized</h1>} />
 
         </Routes>
       </BrowserRouter>
