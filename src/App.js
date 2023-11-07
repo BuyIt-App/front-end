@@ -1,38 +1,86 @@
-import './App.css';
+import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home  from "./pages/Home";
-import MainLayout  from "./pages/MainLayout";
-import Login  from "./pages/Login";
-import Register  from "./pages/Register";
-import Topbar from './Components/Home/Topbar';
-import Cart from './pages/Cart';
-
+import Home from "./pages/Customer/Home";
+import MainLayout from "./pages/Customer/MainLayout";
+import Login from "./pages/Customer/Login";
+import Register from "./pages/Customer/Register";
+import Topbar from "./Components/Home/Topbar";
+import Cart from "./pages/Customer/Cart";
+import ProtectedRoute from "./ProtectedRoute";
+import TopLayout from "./pages/TopLayout";
+import DeliveryHome from "./pages/Delivery person/DeliveryHome";
+import AdminHome from "./pages/Admin/AdminHome";
+import StoreKeeperHome from "./pages/StoreKeeper/StoreKeeperHome";
 
 function App() {
+  const isAuthenticated = false;
+  // const userRole = "ADMIN";
+  const userRole = "CUSTOMER";
+  // const userRole = "STORE KEEPER";
+  // const userRole = "DELIVERY PERSON";
+
   return (
     <div className="App">
-       <BrowserRouter>
-       <Routes>
-  <Route path="/" element={<MainLayout />}>
-    <Route path="Home" element={<Home />} />
-    <Route path="Cart" element={<Cart />} />
-  </Route>
-  <Route path="front-end/Auth">
-    <Route path="Login" element={<Login />} />
-    <Route path="Register" element={<Register />} />
-  </Route>
-  <Route path="Delivery/Auth">
-    <Route path="Login" element={<Login />} />
-    <Route path="Register" element={<Register />} />
-  </Route>
-  <Route path="Delivery" element={<MainLayout />}>
-    <Route path="Home" element={<Home />} />
-  </Route>
-  <Route path="*" element={<h1>Not Found</h1>} />
-</Routes>
+      <BrowserRouter>
+        <Routes>
 
-    </BrowserRouter>
-      
+          {/* cutomer routes */}
+
+         { userRole === "CUSTOMER" ? (
+
+          <Route path="/" element={<MainLayout />}>
+            <Route
+              index
+              element={<Home is={isAuthenticated} userRole={userRole} />}
+            />
+            <Route path="Cart" element={<Cart />} />
+          </Route>
+
+          ) : 
+          <Route path="/403" element={<h1>Not Authorized</h1>} /> 
+          }
+
+          <Route path="/Auth/customer/">
+            <Route path="Login" element={<Login />} />
+            <Route path="Register" element={<Register />} />
+          </Route>
+
+
+
+          {/* admin routes */}
+          <Route path="/Auth/Admin/">
+            <Route path="Login" element={<Login />} />
+            <Route path="Register" element={<Register />} />
+          </Route>
+
+
+           {/* delivery routes */}
+
+          <Route path="/Auth/Delivery/">
+            <Route path="Login" element={<Login />} />
+            <Route path="Register" element={<Register />} />
+          </Route>
+
+          {/* store keeper routes */}
+
+          <Route path="/Auth/Store keeper/">
+            <Route path="Login" element={<Login />} />
+            <Route path="Register" element={<Register />} />
+          </Route>
+
+          {/* common routes */}
+
+          <Route path="/Route/" element={<TopLayout userRole={userRole} />}>
+            <Route path="Delivery" element={<DeliveryHome />} />
+            <Route path="Admin" element={<AdminHome />} />
+            <Route path="StoreKeeper" element={<StoreKeeperHome />} />
+
+          </Route>
+
+          <Route path="*" element={<h1>Not Found</h1>} />
+
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

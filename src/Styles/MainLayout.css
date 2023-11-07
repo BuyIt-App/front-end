@@ -7,22 +7,24 @@
     background-color:#c7c0ca;
     z-index: 999;
     height: 30px;
-    justify-content: space-between;
+    justify-content: flex-end;;
     padding: 10px;
     align-items: center;
   }
 
-   .nav-bar {
-    color: #510C72;
-    padding: 10px;
+  .nav-righ{
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
   }
-  
+
   .nav-right a {
     margin-left: 10px;
     color:#510C72;
     text-decoration: none;
+    font-weight: bold;
+    padding: 5px 25px;
   }
+
+
   
   

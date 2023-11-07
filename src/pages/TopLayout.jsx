@@ -6,14 +6,14 @@ import { Outlet } from 'react-router-dom'
 import Products from '../Components/Home/Products'
 
 
-const MainLayout = () => {
+const TopLayout = ({userRole}) => {
   return (
     <div>
-      <Navbar/>
+      <Topbar props = {userRole} />
       <Outlet/>
     </div>
 
   )
 }
 
-export default MainLayout
+export default TopLayout
