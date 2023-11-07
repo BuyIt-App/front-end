@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import '../Styles/Register.css'
+import BUYIT from '../Components/Assets/buyit_logo .png'
+
 
 
 const Register = () => {
@@ -11,24 +13,24 @@ const Register = () => {
   }
   return (
     <div className="cover">
-      <div className="login-header">
-      <img src="file:///C:/Users/User/Desktop/boit/buyit_logo.png" alt="Login" />
+      <div className="login-headers">
+      <img src={BUYIT} alt="Register" /> 
 
 </div>
-<div className="input-container">
+<div className="input-containers">
   <label htmlFor="username">FirstName</label>
   <input type="text" id="username" placeholder="Enter your firstname" />
 </div>
-      <div className="input-container">
+      <div className="input-containers">
   <label htmlFor="username">Username</label>
   <input type="text" id="username" placeholder="Enter your username" />
 </div>
 
-<div className="input-container">
+<div className="input-containers">
   <label htmlFor="password">Password</label>
   <input type="password" id="password" placeholder="Enter your password" />
 </div>
-<div className="input-container">
+<div className="input-containers">
   <label htmlFor="username">Confirm Password</label>
   <input type="text" id="username" placeholder="Enter your confirm password" />
 </div>

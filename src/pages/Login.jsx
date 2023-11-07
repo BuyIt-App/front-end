@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "../Styles/Login.css"
-
+import BUYIT from '../Components/Assets/buyit_logo .png'
 
 const Login = () => {
   const [popupStyle, showPopup] = useState("hide")
@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div className="cover">
       <div className="login-header">
-      <img src="file:///C:/Users/User/Desktop/boit/buyit_logo.png" alt="Login" />
+       <img src={BUYIT} alt="Login" /> 
 
 </div>
 
